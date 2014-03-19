@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi">
+
+<title>Scroll Checker</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.orientation_lib.min.js"></script>
+</head>
+<style>
+  #text {
+    margin: 0px auto;
+  }
+
+  #panel {
+    margin: 0px auto;
+    width: 200px;
+    height: 200px;
+    border: solid 1px black;
+  }
+</style>
+
+<body>
+<input id="text" type="text" />
+<div id="panel">
+</div>
+<button onclick="alert_func();">alert</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script>
+  var count = 0;
+  $(window).on('orientation_event', function(ev) {
+    count++;
+    var html_val = "ORIENTATION: " + ev.orientation + "<br>";
+    html_val += "WIDTH: " + ev.width + "<br>";
+    html_val += "HEIGHT: " + ev.height + "<br>";
+    html_val += "A_WIDTH: " + ev.availWidth + "<br>";
+    html_val += "A_HEIGHT: " + ev.availHeight + "<br><br>";
+    html_val += "COUNT: " + count + "<br>";
+    $("#panel").html(html_val);
+  });
+
+  function alert_func() {
+    alert("alert!");
+  }
+</script>
+
+</body></html>
