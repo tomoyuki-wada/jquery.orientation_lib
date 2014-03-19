@@ -14,18 +14,26 @@ $(function() {
   var custom_orient = new CustomOrientationEvent();
   var orientation_val = window.orientation;
   $(window).on("resize",function(){
-    if (custom_orient.checkChrome() || custom_orient.checkIos() || custom_orient.checkPattern_02()){
-      return;
+    if (custom_orient.checkChrome() || 
+        custom_orient.checkIos() || 
+        custom_orient.checkPattern_02()){
+          return;
     }
-    else if ((custom_orient.change_flag && custom_orient.checkAndroid()) || (custom_orient.checkAndroidLowerVersion(2.2) && custom_orient.checkOrientationAndroid()) || custom_orient.checkPattern_01()){
+    else if ((custom_orient.change_flag && 
+              custom_orient.checkAndroid()) || 
+             (custom_orient.checkAndroidLowerVersion(2.2) && 
+              custom_orient.checkOrientationAndroid()) || 
+              custom_orient.checkPattern_01()){
       custom_orient.setOrientationEvent();
       custom_orient.change_flag = false;
     }
   });
   
   $(window).on("orientationchange",function(){
-    if (custom_orient.checkChrome() || custom_orient.checkIos() || custom_orient.checkPattern_02()){
-      custom_orient.setOrientationEvent();
+    if (custom_orient.checkChrome() || 
+        custom_orient.checkIos() || 
+        custom_orient.checkPattern_02()){
+        custom_orient.setOrientationEvent();
     }
     else {
       var new_orient_val = window.orientation;
@@ -37,7 +45,7 @@ $(function() {
   });
 });
 
-// コンストラクタ
+// Constructer
 var CustomOrientationEvent = function() {
   this.load_width = $(window).width();
   this.or_val = window.orientation;
@@ -53,10 +61,10 @@ var CustomOrientationEvent = function() {
   }
 }
 
-// カスタムイベントクラス
+// Custom event class.
 CustomOrientationEvent.prototype = {
 
-  // カスタムイベントの生成
+  // Create custom event
   setOrientationEvent : function() {
     var re_orient = window.orientation;
     var re_width = $(window).width();
@@ -84,13 +92,19 @@ CustomOrientationEvent.prototype = {
       out_height = this.load_width;
     }
     
-    // カスタムイベントの定義
-    var orientation_event = new $.Event("orientation_event", {orientation: this.or_param, width: out_width, height: out_height, availWidth: re_width, availHeight: re_height});
+    // Definition of the custom event.
+    var orientation_event = new $.Event("orientation_event", {
+      orientation: this.or_param, 
+      width: out_width, 
+      height: out_height, 
+      availWidth: re_width, 
+      availHeight: re_height
+    });
     $(window).trigger(orientation_event);
   
   },
   
-  // Android2.1以下の端末回転判定
+  // Terminals rotary judgment less than Android2.1.
   checkOrientationAndroid : function() {
     var now_orient = window.orientation;
     if (this.or_val != now_orient){
@@ -102,7 +116,7 @@ CustomOrientationEvent.prototype = {
     }
   },
   
-  // Android判定
+  // Android check
   checkAndroid : function() {
     var ua = navigator.userAgent; 
     if(ua.match(/Android/)){
@@ -111,7 +125,7 @@ CustomOrientationEvent.prototype = {
     return false;
   },
   
-  // Androidバージョン判定（引数未満のverならtrue）
+  // Android version check(ver less than argument is true)
   checkAndroidLowerVersion : function(ver) {
     var bo = false;
     var ua = navigator.userAgent.toLowerCase();
@@ -120,7 +134,7 @@ CustomOrientationEvent.prototype = {
     return bo;
   },
   
-  // iOS判定
+  // iOS check
   checkIos : function() {
     var ua = navigator.userAgent; 
     if(ua.match(/iPhone/) || ua.match(/iPad/)){
@@ -129,7 +143,7 @@ CustomOrientationEvent.prototype = {
     return false;
   },
   
-  // Chrome判定
+  // Chrome check
   checkChrome : function() {
     var ua = navigator.userAgent; 
     if(ua.match(/Chrome/)){
