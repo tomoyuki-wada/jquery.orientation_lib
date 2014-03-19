@@ -41,3 +41,9 @@ $(window).on('orientation_event', function(ev) {
     alert(orientation_str);
 });
 ```
+
+## Version
+
+### 1.0.0
+
+first commit
