@@ -1,16 +1,13 @@
 /*!
- * jQuery Orientation_lib v1.0.0
+ * jQuery Orientation_lib v1.0.1
  * https://github.com/
  *
  * Copyright 2014 Tomoyuki Wada
  * Released under the MIT license
  */
 
-const PAT_01 = "";
-const PAT_02 = new Array(/SonyEricssonIS11S/);
-
+// onload
 $(function() {
-
   var custom_orient = new CustomOrientationEvent();
   var orientation_val = window.orientation;
   $(window).on("resize",function(){
@@ -46,7 +43,9 @@ $(function() {
 });
 
 // Constructer
-var CustomOrientationEvent = function() {
+function CustomOrientationEvent() {
+  this.PAT_01 = "";
+  this.PAT_02 = new Array(/SonyEricssonIS11S/);
   this.load_width = $(window).width();
   this.or_val = window.orientation;
   this.or_param = "portrait";
@@ -154,8 +153,8 @@ CustomOrientationEvent.prototype = {
 
   checkPattern_01 : function() {
     var ua = navigator.userAgent; 
-    for (var i = 0; i < PAT_01.length; i++) {
-      if(ua.match(PAT_01[i])){
+    for (var i = 0; i < this.PAT_01.length; i++) {
+      if(ua.match(this.PAT_01[i])){
         return true;
       }
     }
@@ -164,8 +163,8 @@ CustomOrientationEvent.prototype = {
 
   checkPattern_02 : function() {
     var ua = navigator.userAgent; 
-    for (var i = 0; i < PAT_02.length; i++) {
-      if(ua.match(PAT_02[i])){
+    for (var i = 0; i < this.PAT_02.length; i++) {
+      if(ua.match(this.PAT_02[i])){
         return true;
       }
     }

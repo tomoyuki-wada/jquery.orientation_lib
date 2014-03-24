@@ -95,13 +95,14 @@ a user can do recovery in the state that this library can work by adding an exce
 
 ## Method of the exception definition
 
-The user appoints a distinction level of the browser concerned in a pattern defining the constant at the top of this library (plural designated possibility).  
+The user appoints a distinction level of the browser concerned in a pattern defining the constant at the constructer of this library (plural designated possibility).  
 The distinction level assumes it the character string that I can acquire from the user agent, and it and the browser that I matched are not the patterns mentioned above,  
 We will be holding the processing by the pattern that I defined here.
 But, please define the character string that can limit a mobile browser.
 (Prevent you from appointing the character string of the wide sense such as `Chrome` and `Android` because it is dangerous)
 
 ```
-const PAT_01 = new Array(/Chrome\/33.0.1750.146/); // Only when it accesses it in Version33.0.1750.146 of Chrome
-const PAT_02 = new Array(/SonyEricssonIS11S/);
+var CustomOrientationEvent = function() {
+	this.PAT_01 = new Array(/Chrome\/33.0.1750.146/); // Only when it accesses it in Version33.0.1750.146 of Chrome
+	this.PAT_02 = new Array(/SonyEricssonIS11S/);
 ```
