@@ -44,6 +44,10 @@ $(window).on('orientation_event', function(ev) {
 
 ## バージョン
 
+### 1.0.1
+
+コンフリクトの防止対応
+
 ### 1.0.0
 
 first commit

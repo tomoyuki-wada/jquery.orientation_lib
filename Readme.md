@@ -44,6 +44,10 @@ $(window).on('orientation_event', function(ev) {
 
 ## Version
 
+### 1.0.1
+
+Conflict hedge.
+
 ### 1.0.0
 
 first commit
